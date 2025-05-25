@@ -1,0 +1,18 @@
+apiVersion: 1.1
+image:
+  imageType: iso
+  arch: x86_64
+  baseImage: SL-Micro.x86_64-6.0-Base-RT-SelfInstall-GM2.install.iso
+  outputImageName: eib-image.iso
+operatingSystem:
+  users:
+    - username: root
+      createHomeDir: true
+      encryptedPassword: $6$r2bo4ZUwh6Tnhi61$rTJJWWAaDB3Hk/NAkdJgFH26eJSE8NAIL/HjpO7Lunm0hQKNhvnKGEvoWMjduOIZKi4cB5KbOhEQZNjguLcMR/
+      sshKeys:
+        - xxxx
+  packages:
+    noGPGCheck: true
+    packageList:
+      - k3s-selinux
+    sccRegistrationCode: xxxx
