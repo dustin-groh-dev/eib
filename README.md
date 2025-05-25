@@ -29,5 +29,14 @@ cattle-cluster-agent-8597895bd5-tvbc6                             1/1     Runnin
 cattle-cluster-agent-8597895bd5-vbr2t                             1/1     Running     0          7m18s
 rancher-webhook-586f888bb-47bq9                                   1/1     Running     0          7h11m
 system-upgrade-controller-5fb67f585d-7wqgd                        1/1     Running     0          7h12m
+
+2603-900a-2100-79da-0000-0000-0000-1034:~ # kubectl get pods -n cattle-system -o wide | grep agent
+cattle-cluster-agent-8597895bd5-tvbc6        1/1     Running   0          12h   10.42.0.19   2603-900a-2100-79da-0000-0000-0000-102e.inf6.spectrum.com   <none>           <none>
+cattle-cluster-agent-8597895bd5-vbr2t        1/1     Running   0          12h   10.42.0.20   2603-900a-2100-79da-0000-0000-0000-102e.inf6.spectrum.com   <none>           <none>
+
+2603-900a-2100-79da-0000-0000-0000-1034:~ # kubectl get nodes -o wide
+NAME                                                        STATUS   ROLES                              AGE   VERSION        INTERNAL-IP   EXTERNAL-IP   OS-IMAGE               KERNEL-VERSION   CONTAINER-RUNTIME
+2603-900a-2100-79da-0000-0000-0000-102e.inf6.spectrum.com   Ready    control-plane,etcd,master,worker   19h   v1.31.8+k3s1   10.27.27.79   <none>        SUSE Linux Micro 6.0   6.4.0-9-rt       containerd://2.0.4-k3s2
+2603-900a-2100-79da-0000-0000-0000-1034.inf6.spectrum.com   Ready    control-plane,etcd,master,worker   12h   v1.31.8+k3s1   10.27.27.42   <none>        SUSE Linux Micro 6.0   6.4.0-9-rt       containerd://2.0.4-k3s2
 ```
 
