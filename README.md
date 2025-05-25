@@ -1,11 +1,32 @@
-Both nodes added to cluster.
+Built an image with this definition
+```
+apiVersion: 1.1
+image:
+  imageType: iso
+  arch: x86_64
+  baseImage: SL-Micro.x86_64-6.0-Base-RT-SelfInstall-GM2.install.iso
+  outputImageName: eib-image.iso
+operatingSystem:
+  users:
+    - username: root
+      createHomeDir: true
+      encryptedPassword: $6$r2bo4ZUwh6Tnhi61$rTJJWWAaDB3Hk/NAkdJgFH26eJSE8NAIL/HjpO7Lunm0hQKNhvnKGEvoWMjduOIZKi4cB5KbOhEQZNjguLcMR/
+      sshKeys:
+        - xxxx
+  packages:
+    noGPGCheck: true
+    packageList:
+      - k3s-selinux
+    sccRegistrationCode: xxxx
+```
+Launched 2 nodes using this image, ran the registration command and added both nodes added to cluster.
 ```
 2603-900a-2100-79da-0000-0000-0000-1034:~ # kubectl get nodes -o wide
 NAME                                                        STATUS   ROLES                              AGE   VERSION        INTERNAL-IP   EXTERNAL-IP   OS-IMAGE               KERNEL-VERSION   CONTAINER-RUNTIME
 2603-900a-2100-79da-0000-0000-0000-102e.inf6.spectrum.com   Ready    control-plane,etcd,master,worker   19h   v1.31.8+k3s1   10.27.27.79   <none>        SUSE Linux Micro 6.0   6.4.0-9-rt       containerd://2.0.4-k3s2
 2603-900a-2100-79da-0000-0000-0000-1034.inf6.spectrum.com   Ready    control-plane,etcd,master,worker   12h   v1.31.8+k3s1   10.27.27.42   <none>        SUSE Linux Micro 6.0   6.4.0-9-rt       containerd://2.0.4-k3s2
 ```
-k3s-selinux rpm installed.
+Confirmed k3s-selinux rpm installed.
 ```
 2603-900a-2100-79da-0000-0000-0000-102e:~ # rpm -qa | grep selinux
 libselinux1-3.5-3.1.x86_64
@@ -18,7 +39,7 @@ cockpit-selinux-309-6.1.noarch
 patterns-base-selinux-6.0-1.1.x86_64
 k3s-selinux-1.6-1.slemicro.noarch
 ```
-selinux enforcing.
+Confirmed selinux enforcing.
 ```
 2603-900a-2100-79da-0000-0000-0000-102e:~ # sestatus
 SELinux status:                 enabled
