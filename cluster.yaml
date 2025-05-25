@@ -1,0 +1,98 @@
+apiVersion: provisioning.cattle.io/v1
+kind: Cluster
+metadata:
+  annotations:
+    field.cattle.io/creatorId: user-qfz4h
+  creationTimestamp: '2025-05-24T18:31:48Z'
+  finalizers:
+    - wrangler.cattle.io/cloud-config-secret-remover
+    - wrangler.cattle.io/provisioning-cluster-remove
+    - wrangler.cattle.io/rke-cluster-remove
+  generation: 3
+  managedFields:
+    - apiVersion: provisioning.cattle.io/v1
+      fieldsType: FieldsV1
+      manager: rancher-v2.10.2-secret-migrator
+      operation: Update
+      time: '2025-05-24T18:31:48Z'
+      manager: rancher
+      operation: Update
+      time: '2025-05-24T18:47:19Z'
+    - apiVersion: provisioning.cattle.io/v1
+      fieldsType: FieldsV1
+      manager: rancher
+      operation: Update
+      subresource: status
+      time: '2025-05-25T01:46:41Z'
+  name: k3s-testing
+  namespace: fleet-default
+  resourceVersion: '91665405'
+  uid: d9316d70-31e0-48bc-adec-0bc56c8c8124
+spec:
+  clusterAgentDeploymentCustomization:
+    appendTolerations: null
+    overrideAffinity: null
+    overrideResourceRequirements: null
+  defaultPodSecurityAdmissionConfigurationTemplateName: ''
+  fleetAgentDeploymentCustomization:
+    appendTolerations: null
+    overrideAffinity: null
+    overrideResourceRequirements: null
+  kubernetesVersion: v1.31.8+k3s1
+  localClusterAuthEndpoint:
+    caCerts: ''
+    enabled: false
+    fqdn: ''
+  rkeConfig:
+    chartValues: {}
+    dataDirectories:
+      k8sDistro: ''
+      provisioning: ''
+      systemAgent: ''
+    etcd:
+      disableSnapshots: false
+      snapshotRetention: 5
+      snapshotScheduleCron: 0 */5 * * *
+    machineGlobalConfig:
+      disable-apiserver: false
+      disable-cloud-controller: false
+      disable-controller-manager: false
+      disable-etcd: false
+      disable-kube-proxy: false
+      disable-network-policy: false
+      disable-scheduler: false
+      etcd-expose-metrics: false
+      secrets-encryption: false
+    machinePools: null
+    machineSelectorConfig:
+      - config:
+          docker: false
+          protect-kernel-defaults: false
+          selinux: true
+    registries:
+      configs: {}
+      mirrors: {}
+    upgradeStrategy:
+      controlPlaneConcurrency: '1'
+      controlPlaneDrainOptions:
+        deleteEmptyDirData: true
+        disableEviction: false
+        enabled: false
+        force: false
+        gracePeriod: -1
+        ignoreDaemonSets: true
+        skipWaitForDeleteTimeoutSeconds: 0
+        timeout: 120
+      workerConcurrency: '1'
+      workerDrainOptions:
+        deleteEmptyDirData: true
+        disableEviction: false
+        enabled: false
+        force: false
+        gracePeriod: -1
+        ignoreDaemonSets: true
+        skipWaitForDeleteTimeoutSeconds: 0
+        timeout: 120
+  fleetWorkspaceName: fleet-default
+  observedGeneration: 3
+  ready: true
