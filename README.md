@@ -19,6 +19,35 @@ operatingSystem:
       - k3s-selinux
     sccRegistrationCode: xxxx
 ```
+```
+dgroh@tumbelweed:~/eib> podman run --rm --privileged -it   -v .:/eib edge-image-builder:1.1.0 build   --definition-file ./definitions/iso/basic.yaml
+Setting up Podman API listener...
+Generating image customization components...
+Identifier ................... [SUCCESS]
+Custom Files ................. [SKIPPED]
+Time ......................... [SKIPPED]
+Network ...................... [SKIPPED]
+Groups ....................... [SKIPPED]
+Users ........................ [SUCCESS]
+Proxy ........................ [SKIPPED]
+WARNING: Running EIB with disabled GPG validation is intended for development purposes only
+Resolving package dependencies...
+Rpm .......................... [SUCCESS]
+Os Files ..................... [SKIPPED]
+Systemd ...................... [SKIPPED]
+Fips ......................... [SKIPPED]
+Elemental .................... [SKIPPED]
+Suma ......................... [SKIPPED]
+Embedded Artifact Registry ... [SKIPPED]
+Keymap ....................... [SUCCESS]
+Kubernetes ................... [SKIPPED]
+Certificates ................. [SKIPPED]
+Cleanup ...................... [SKIPPED]
+Building ISO image...
+Kernel Params ................ [SKIPPED]
+Build complete, the image can be found at: eib-image.iso
+```
+
 Launched 2 nodes using this image, ran the registration command and added both nodes added to cluster.
 ```
 2603-900a-2100-79da-0000-0000-0000-1034:~ # kubectl get nodes -o wide
